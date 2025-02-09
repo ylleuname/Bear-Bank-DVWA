@@ -8,6 +8,7 @@ Bear Bank é uma aplicação web educacional desenvolvida para demonstrar vulner
 
 - Simulação de login de usuário
 - Visualização de saldo e transações
+- Realizar investimentos fictícios
 - Demonstração de SQL Injection em modo vulnerável
 - Implementação de práticas seguras em modo protegido
 
