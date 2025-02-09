@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin: auto;">
+    {% if status == 'sucesso' %}
+        <h1>Bem-vindo(a), {{ nome }}!</h1>
+        <p>Login realizado com sucesso!</p>
+    {% else %}
+        <h1>Erro no login</h1>
+        <p>Por favor, tente novamente.</p>
+    {% endif %}
+    <a href="{{ url_for('login') }}" style="text-decoration: none;">
+        <button style="padding: 10px 20px; font-size: 16px;">Voltar ao Login</button>
+    </a>
+</div>
+{% endblock %}

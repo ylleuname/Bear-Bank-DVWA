@@ -1,0 +1,230 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f0e1; /* Cor de fundo mais clara, mantendo o tom marrom */
+    color: #4f4a45; /* Cor de texto marrom escuro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    font-size: 24px;
+    color: #4f4a45; /* Marrom escuro para os títulos */
+}
+
+p {
+    font-size: 16px;
+    color: #6a5b48; /* Cor de texto secundária em tom marrom mais suave */
+}
+
+/* Estilo do formulário de busca de transações */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+form input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+    margin-right: 10px;
+}
+
+form button {
+    padding: 8px 16px;
+    background-color: #8c5e3c; /* Tom marrom para o botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #6b4b33; /* Cor mais escura de marrom para o efeito hover */
+}
+
+/* Estilo do checkbox para alternar modo */
+.mode-toggle {
+    margin-top: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.mode-toggle input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.mode-toggle label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8c5e3c; /* Cor marrom para o texto do checkbox */
+}
+
+button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #a15c2e; /* Tom marrom mais intenso para o botão de submit */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #804c23; /* Tom marrom mais escuro para o hover */
+}
+
+/* Estilo da tabela de transações */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #8c5e3c; /* Cor marrom para o cabeçalho da tabela */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f5e1c0; /* Cor de fundo mais suave para as linhas pares */
+}
+
+tr:hover {
+    background-color: #e3d0a4; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+.header {
+    position: relative;
+}
+
+/* Estilo do botão de logout posicionado no canto superior direito */
+.logout-button {
+    padding: 8px 16px;
+    background-color: #d9534f; /* Vermelho para logout */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    position: absolute; /* Posicionamento absoluto */
+    top: 10px;  /* Distância do topo */
+    right: 10px; /* Distância da borda direita */
+}
+
+.logout-button:hover {
+    background-color: #c9302c; /* Vermelho mais escuro para o hover */
+}
+
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash-messages li {
+    background-color: #dff0d8;  /* Verde suave para sucesso */
+    color: #3c763d;  /* Texto verde */
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: opacity 1s ease-out;
+}
+
+.flash-messages li.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
+}
+
+.flash-messages li.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-color: #d6e9c6;
+}
+
+/* Adições para a seção de saldo e investimento */
+.balance-info {
+    margin-bottom: 20px;
+}
+
+.balance-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #4f4a45; /* Cor de texto marrom escuro, igual ao existente */
+}
+
+/* Adições para o botão de investimento */
+.invest-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8c5e3c; /* Tom marrom para o botão, igual ao existente */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.invest-button:hover {
+    background-color: #6b4b33; /* Cor mais escura de marrom para o efeito hover, igual ao existente */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    form input[type="text"], form button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .mode-toggle {
+        flex-direction: column;
+    }
+}

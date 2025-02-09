@@ -1,0 +1,190 @@
+/* investimento.css */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #4f4a45; /* Cor marrom escuro para o título */
+    margin-bottom: 20px;
+}
+
+.balance-info {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f7f0e1; /* Cor de fundo suave, igual ao body */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.balance-info p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #4f4a45; /* Cor de texto marrom escuro */
+}
+
+.balance-info p strong {
+    color: #8c5e3c; /* Cor marrom para destacar valores */
+}
+
+form {
+    margin-bottom: 25px;
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    color: #4f4a45; /* Cor de texto marrom escuro */
+    margin-bottom: 10px;
+}
+
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+form button {
+    width: 13%;
+    padding: 12px;
+    background-color: #8c5e3c; /* Tom marrom para o botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #6b4b33; /* Cor mais escura de marrom para o efeito hover */
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d9534f; /* Vermelho para o botão de voltar */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #c9302c; /* Vermelho mais escuro para o efeito hover */
+}
+
+/* Estilo para mensagens flash */
+.flash-messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.flash-messages li {
+    background-color: #dff0d8;  /* Verde suave para sucesso */
+    color: #3c763d;  /* Texto verde */
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: opacity 1s ease-out;
+}
+
+.flash-messages li.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
+}
+
+.flash-messages li.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-color: #d6e9c6;
+}
+
+/* Estilo para o checkbox */
+.checkbox-container {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-container label {
+    font-size: 16px;
+    color: #4f4a45; /* Cor marrom escuro */
+    cursor: pointer;
+}
+
+/* Agrupar input e botão */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaço entre input e botão */
+}
+
+/* Ajustar botão "Investir" */
+.invest-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #8c5e3c; /* Tom marrom */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Centralizar botão "Investir" */
+.invest-button {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Mantém o mesmo tamanho do botão de voltar */
+.invest-button,
+.back-button {
+    width: fit-content;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .balance-info p {
+        font-size: 16px;
+    }
+
+    form input[type="number"], form button, .back-button {
+        font-size: 14px;
+    }
+}

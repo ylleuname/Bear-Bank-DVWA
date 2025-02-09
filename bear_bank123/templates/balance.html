@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Saldo e Transações{% endblock %}
+
+{% block content %}
+    <h1>Saldo e Transações</h1>
+    
+    {% if user and user.saldo is not none %}
+    <p>Saldo Atual: R$ {{ "%.2f"|format(user.saldo) }}</p>
+    {% else %}
+    <p>Saldo Atual: R$ 0.00</p>
+    {% endif %}
+    
+    <form method="POST">
+        <label for="start_date">Data de Início:</label>
+        <input type="date" id="start_date" name="start_date" required>
+        
+        <label for="end_date">Data de Fim:</label>
+        <input type="date" id="end_date" name="end_date" required>
+        
+        <button type="submit">Ver Transações</button>
+    </form>
+    
+    {% if transactions %}
+        <h2>Transações de {{ start_date }} a {{ end_date }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.data_transacao }}</td>
+                    <td>{{ transaction.descricao }}</td>
+                    <td>
+                        {% if transaction.tipo_descricao == 'Recebida' %}
+                        +R$ {{ "%.2f"|format(transaction.valor) }}
+                        {% else %}
+                        -R$ {{ "%.2f"|format(transaction.valor) }}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p>Não há transações no período especificado.</p>
+    {% endif %}
+{% endblock %}

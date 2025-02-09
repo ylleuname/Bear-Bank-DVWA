@@ -1,0 +1,71 @@
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{% block content %}
+<div class="full-page">
+    <!-- Painel esquerdo -->
+    <div class="half-panel left-panel">
+        <h1>BearBank</h1>
+        <p>Internet Banking</p>
+        <p>Para informações bancárias seguras.</p>
+    </div>
+
+    <!-- Painel direito -->
+    <div class="half-panel right-panel">
+        <form method="POST">
+            <h2>Login</h2>
+            <label for="agency">Agência:</label>
+            <input type="text" id="agency" name="agency" required>
+            <label for="account">Conta:</label>
+            <input type="text" id="account" name="account" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Checkbox para Safe Mode -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="safe_mode" name="safe_mode" 
+                       {% if session.get('safe_mode', False) %}checked{% endif %}>
+                <label for="safe_mode">Usar Banco de Dados Seguro</label>
+            </div>
+
+            <!-- Checkbox para Prepared Statement -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="use_prepared_statement" name="use_prepared_statement" 
+                       {% if session.get('use_prepared_statement', False) %}checked{% endif %}>
+                <label for="use_prepared_statement">Usar Prepared Statement</label>
+            </div>
+
+            <!-- Checkbox para Input Filtering -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="filter_input" name="filter_input" 
+                       {% if session.get('filter_input_enabled', False) %}checked{% endif %}>
+                <label for="filter_input">Filtrar Entrada</label>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessages = document.querySelectorAll('.flash-messages li');    
+        flashMessages.forEach(function(message) {
+            setTimeout(function() {
+                message.style.display = 'none';  
+            }, 1000);  
+        });
+    });
+</script>

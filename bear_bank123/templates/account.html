@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Account{% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{ user.nome_completo }}</h1> <!-- Use o nome correto retornado pela consulta -->
+    <p>Account Number: {{ user.conta }}</p>  <!-- Use o nome correto retornado pela consulta -->
+    <p>Balance: ${{ "%.2f"|format(user.saldo) }}</p>  <!-- Corrigido para acessar 'user.saldo' -->
+    
+    <h2>Recent Transactions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.data_transacao }}</td>  <!-- Use o nome correto retornado pela consulta -->
+                <td>{{ transaction.tipo_descricao }} - {{ transaction.descricao }}</td>  <!-- Use o nome correto para 'descricao' -->
+                <td>${{ "%.2f"|format(transaction.valor) }}</td>  <!-- Use o nome correto para 'valor' -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

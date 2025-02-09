@@ -1,0 +1,112 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo as cores principais com base na paleta de cores */
+:root {
+    --cor-principal: #8B5E3C;  /* Cor marrom principal */
+    --cor-secundaria: #D69B56; /* Cor dourada */
+    --cor-fundo: #F4E1C1;      /* Cor de fundo clara */
+    --cor-texto: #2F2F2F;      /* Cor de texto */
+    --cor-destaque: #FF8C00;   /* Cor de destaque (laranja) */
+    --cor-link: #8B5E3C;       /* Cor dos links */
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    padding: 20px;
+}
+
+/* Cabeçalho principal */
+h1 {
+    font-size: 2.5rem;
+    color: var(--cor-principal);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Parágrafos */
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Listas */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    color: var(--cor-link);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--cor-destaque);
+}
+
+/* Botão de Login */
+button {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--cor-destaque);
+}
+
+/* Container principal */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionando uma borda e ajustando os margens */
+section {
+    margin-bottom: 30px;
+}
+
+/* Ajustes de responsividade */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p, ul li {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}

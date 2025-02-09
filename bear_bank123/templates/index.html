@@ -1,0 +1,20 @@
+
+
+
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    </head>
+
+    <h1>Bem-vindo ao Bear Bank</h1>
+    <p>Este é um aplicativo de demonstração desenvolvido como parte de um Trabalho de Conclusão de Curso (TCC) no Instituto Federal de Brasília.</p>
+    <p>O objetivo principal deste projeto é mostrar e ensinar sobre as vulnerabilidades de SQL Injection e as melhores práticas para prevenir esses ataques em aplicações web.</p>
+    <p>O Bear Bank oferece dois modos para fins educacionais:</p>
+    <ul>
+        <li><strong>Modo Vulnerável</strong>: Demonstra como as vulnerabilidades de SQL Injection podem ser exploradas.</li>
+        <li><strong>Modo Seguro</strong>: Implementa medidas de segurança, como validação de entradas, prepared statements e sanitização de dados para prevenir SQL Injection.</li>
+    </ul>
+    <p>Sinta-se à vontade para explorar o aplicativo e ver o impacto das práticas de segurança em ação.</p>
+    <p>Por favor, <a href="{{ url_for('login') }}">faça login</a> para acessar sua conta e visualizar a demonstração em ação.</p>
+{% endblock %}

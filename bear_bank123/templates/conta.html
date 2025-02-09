@@ -1,0 +1,85 @@
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/conta.css') }}">
+{% endblock %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{% block content %}
+
+<div class="container">
+    <!-- Cabeçalho com nome do usuário e botão de logout -->
+    <div class="header">
+        <h1>Bem-vindo(a), {{ user['nome_completo'] }}</h1>
+        <form method="POST" action="{{ url_for('logout') }}" style="display: inline;">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+
+    <p>Agência: {{ user['agencia'] }} | Conta: {{ user['conta'] }}-{{ user['digito'] }}</p>
+
+    <!-- Exibir saldo e investimento -->
+    <div class="balance-info">
+        <p>Saldo: R$ {{ '{:,.2f}'.format(user['saldo']) }}</p>
+        <p>Investimento: R$ {{ '{:,.2f}'.format(user['investimento']) }}</p>
+    </div>
+
+    <!-- Botão para investimento -->
+    <a href="{{ url_for('investimento') }}" class="invest-button">Investir</a>
+
+    <!-- Formulário para buscar transações -->
+    <form method="GET" action="{{ url_for('conta') }}">
+        <label for="date">Filtrar transações:</label>
+        <input type="text" id="date" name="date" placeholder="Digite a data (YYYY-MM-DD)">
+        <button type="submit">Buscar</button>
+    </form>
+
+  
+    <h2>Transações Recentes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Origem</th>
+                <th>Destino</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <!-- Formatação da data -->
+                <td>{{ transaction['date'].strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                <!-- Tipo de transação (sem mudanças) -->
+                <td>{{ transaction['transaction_type'] }}</td>
+                <!-- Formatação do valor para moeda brasileira -->
+                <td>R$ {{ '{:,.2f}'.format(transaction['amount']|float)|replace(',', 'X')|replace('.', ',')|replace('X', '.') }}</td>
+                <!-- Origem e Destino (sem mudanças) -->
+                <td>{{ transaction['origin'] }}</td>
+                <td>{{ transaction['destination'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flashMessages = document.querySelectorAll('.flash-messages li');    
+        flashMessages.forEach(function(message) {
+            setTimeout(function() {
+                message.style.display = 'none';  
+            }, 1000);  
+        });
+    });
+</script>
