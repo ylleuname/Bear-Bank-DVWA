@@ -23,7 +23,7 @@ Bear Bank é uma aplicação web educacional desenvolvida para demonstrar vulner
 
 1. Clone o repositório:
    ```
-   git clone https://github.com/seu-usuario/Bear-Bank-DVWA.git
+   git clone https://github.com/ylleuname/Bear-Bank-DVWA.git
    cd bear-bank-DVWA
    cd bear_bank123
    ```
