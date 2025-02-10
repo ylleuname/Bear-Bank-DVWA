@@ -29,8 +29,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: secure_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: admin
       MYSQL_ROOT_HOST: "%"
     ports:
       - "3308:3306"
@@ -44,8 +42,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin
       MYSQL_DATABASE: vulnerable_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: admin
       MYSQL_ROOT_HOST: "%"
     ports:
       - "3309:3306"
