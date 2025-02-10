@@ -37,10 +37,19 @@ Bear Bank é uma aplicação web educacional desenvolvida para demonstrar vulner
    ```
    sudo docker-compose up --build
    ```
+   ou, dependendo da versão Docker
 
-4. Caso já tenha criado os containers, apenas o seguinte comando é suficiente para inicializar a aplicação:
+   ```
+   sudo docker compose up --build
+   ```
+
+5. Caso já tenha criado os containers, apenas o seguinte comando é suficiente para inicializar a aplicação:
    ```
    sudo docker-compose up -d
+   ```
+   ou, dependendo da versão
+   ```
+   sudo docker compose up -d
    ```
 
 ## Instalação e Execução (Windows)
